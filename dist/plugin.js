@@ -170,20 +170,25 @@ class Spotify extends Plugin {
 
         const node = this.riffy.leastUsedNodes[0];
 
-        return new Track({
-            track: '',
+        return new Track(
+          {
+            track: "",
             info: {
-                identifier: track.id,
-                seekable: true,
-                author: track.author || "Unknown",
-                length: track.duration,
-                stream: false,
-                sourceName: 'spotify',
-                title: track.title,
-                uri: `https://open.spotify.com/track/${track.id}`,
-                thumbnail: null,
-            }
-        }, requester, node);
+              identifier: track.id,
+              isSeekable: true,
+              author: track.author || "Unknown",
+              length: track.duration,
+              isStream: false,
+              sourceName: "spotify",
+              title: track.title,
+              uri: `https://open.spotify.com/track/${track.id}`,
+              thumbnail: null,
+              position: 0,
+            },
+          },
+          requester,
+          node
+        );
     }
 
     async buildResponse(loadType, tracks, name, error) {
