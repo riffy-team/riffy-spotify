@@ -1,6 +1,13 @@
 const { fetch } = require("undici");
 const { Plugin, Track } = require("riffy");
 
+/**
+ * 
+ * @description new Regexp
+ * ```js
+ * /(?:(https?:\/\/)(www\.)?open\.spotify\.com\/|spotify:)(?:(?<region>[a-zA-Z-]+)\/?:)?(user\/(?<user>[a-zA-Z0-9-_]+)\/)?(?<type>track|album|playlist|artist)\/?:(?<identifier>[a-zA-Z0-9-_]+)/
+ * ```
+ */
 const REGEX = /(?:https:\/\/open\.spotify\.com\/|spotify:)(.+)(?:[\/:])([A-Za-z0-9]+)/;
 
 class Spotify extends Plugin {
